@@ -253,19 +253,8 @@ jekyll_compose:
       math: false
       mermaid: false
 
-# AzuraCast Configuration
-azuracast:
-  server_url: "https://azuracast.esigma.su"
-  station_id: 3
-  station_name: "wastelandblues/radio320.mp3"
-  update_interval: 10000
 
 # Plugins для поддержки JavaScript
-# plugins:
-#   - jekyll-sitemap
+plugins:
+  - jekyll-sitemap
 #   - jekyll-seo-tag
-
-# Exclude from processing
-exclude:
-  - node_modules/
-  - vendor/
