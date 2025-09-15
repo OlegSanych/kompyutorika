@@ -257,4 +257,5 @@ jekyll_compose:
 # Plugins для поддержки JavaScript
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 #   - jekyll-seo-tag
