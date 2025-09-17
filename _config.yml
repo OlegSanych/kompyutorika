@@ -121,6 +121,7 @@ comments:
     auto_publish: 0     # 0 - отключено, 1 - автопубликация в VK
     realtime: 1         # 0 - отключено, 1 - обновления в реальном времени
     lazy_load: true     # Ленивая загрузка виджета
+    debug: true  # Включить отладку
   
   # disqus:
   #   shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname

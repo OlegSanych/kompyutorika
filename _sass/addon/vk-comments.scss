@@ -1,4 +1,4 @@
-// Minimal VK Comments Integration
+// VK Comments - Minimal Styling
 .vk-comments-wrapper {
   margin-top: 2rem;
   padding-top: 2rem;
@@ -6,17 +6,28 @@
   
   h3 {
     color: var(--heading-color);
+    font-weight: 600;
     
     .fab.fa-vk {
       color: #4680c2;
     }
   }
+  
+  .vk-admin-panel {
+    border-top: 1px solid var(--card-border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
 }
 
-// Мобильная адаптация (минимальная)
+// Адаптация для мобильных устройств
 @media (max-width: 768px) {
   .vk-comments-wrapper {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
+    
+    h3 {
+      font-size: 1.25rem;
+    }
   }
 }
