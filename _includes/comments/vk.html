@@ -1,0 +1,101 @@
+<!-- VK Comments Provider for Chirpy Theme -->
+<div class="vk-comments-wrapper">
+  <!-- Простой заголовок -->
+  <h3 class="mb-4">
+    <i class="fab fa-vk me-2"></i>
+    Комментарии
+  </h3>
+  
+  <!-- Контейнер для виджета (без стилизации) -->
+  <div id="vk_comments"></div>
+  
+  <!-- Простая загрузочная анимация -->
+  <div id="vk-comments-loader" class="text-center py-4">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Загрузка...</span>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+(function() {
+  'use strict';
+  
+  const VK_APP_ID = {{ site.comments.vk.app_id }};
+  const LAZY_LOAD = {{ site.comments.vk.lazy_load | default: true }};
+  
+  // Конфигурация виджета (стандартная)
+  const widgetConfig = {
+    width: "{{ site.comments.vk.width | default: '100%' }}",
+    height: {{ site.comments.vk.height | default: 0 }},
+    limit: {{ site.comments.vk.limit | default: 15 }},
+    attach: "{{ site.comments.vk.attach | default: '*' }}",
+    autoPublish: {{ site.comments.vk.auto_publish | default: 0 }},
+    norealtime: {{ site.comments.vk.realtime | default: 1 }} === 0 ? 1 : 0,
+    pageUrl: "{{ page.url | absolute_url }}",
+    page_id: "{{ page.id | default: page.url | slugify }}"
+  };
+  
+  // Загрузка VK API
+  function loadVKAPI() {
+    return new Promise((resolve, reject) => {
+      if (typeof VK !== 'undefined') {
+        resolve();
+        return;
+      }
+      
+      const script = document.createElement('script');
+      script.src = 'https://vk.com/js/api/openapi.js?169';
+      script.async = true;
+      script.onload = () => {
+        VK.init({
+          apiId: VK_APP_ID,
+          onlyWidgets: true
+        });
+        resolve();
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+  }
+  
+  // Инициализация виджета
+  function initComments() {
+    const loader = document.getElementById('vk-comments-loader');
+    
+    try {
+      VK.Widgets.Comments('vk_comments', widgetConfig);
+      loader.style.display = 'none';
+    } catch (error) {
+      console.error('VK Comments error:', error);
+      loader.innerHTML = '<div class="alert alert-warning">Не удалось загрузить комментарии</div>';
+    }
+  }
+  
+  // Основная функция
+  async function loadComments() {
+    try {
+      await loadVKAPI();
+      initComments();
+    } catch (error) {
+      console.error('Error loading VK:', error);
+      document.getElementById('vk-comments-loader').innerHTML = 
+        '<div class="alert alert-warning">Ошибка загрузки</div>';
+    }
+  }
+  
+  // Ленивая загрузка или сразу
+  if (LAZY_LOAD) {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadComments();
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+    
+    observer.observe(document.getElementById('vk_comments'));
+  } else {
+    document.addEventListener('DOMContentLoaded', loadComments);
+  }
+})();
+</script>

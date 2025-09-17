@@ -1,0 +1,22 @@
+// Minimal VK Comments Integration
+.vk-comments-wrapper {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--card-border-color);
+  
+  h3 {
+    color: var(--heading-color);
+    
+    .fab.fa-vk {
+      color: #4680c2;
+    }
+  }
+}
+
+// Мобильная адаптация (минимальная)
+@media (max-width: 768px) {
+  .vk-comments-wrapper {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
