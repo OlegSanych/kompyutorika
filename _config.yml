@@ -113,16 +113,14 @@ comments:
   # The provider options are as follows:
   # VK Comments settings
   vk:
-    # vk_comments_enabled: true
-    # vk_app_id: 51990452    # ID приложения VK
-    # width: "100%"       # Ширина виджета
-    # height: 0           # Высота (0 = авто)
-    # vk_default_comments_limit: 10           # Количество комментариев на странице
-    # attach: "photo"         # Типы вложений: graffiti,photo,video,audio,link или "*"
-    # auto_publish: 0     # 0 - отключено, 1 - автопубликация в VK
-    # realtime: 1         # 0 - отключено, 1 - обновления в реальном времени
-    # lazy_load: true     # Ленивая загрузка виджета
-    # debug: true  # Включить отладку
+    api_id: 51990452
+    width: # ширина виджета в пикселах (по умолчанию авто)
+    height: # максимальная высота (по умолчанию 0 - без ограничений)
+    limit: 10 # количество комментариев на страницу (5-100)
+    attach: "*" # типы вложений: graffiti,photo,audio,video,link или "*"
+    auto_publish: 0 # автопубликация на страницу пользователя (0/1)
+    norealtime: 0 # отключение обновлений в реальном времени (0/1)
+    page_url: # URL для ссылки в комментарии (по умолчанию текущая страница)
   
   # disqus:
   #   shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
