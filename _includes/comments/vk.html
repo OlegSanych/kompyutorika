@@ -3,21 +3,9 @@
   <div id="vk_comments" class="vk-comments-container"></div>
 </div>
 
+<div id="vk_comments"></div>
 <script type="text/javascript">
-  // Инициализация VK API происходит в head.html
-  if (typeof VK !== 'undefined') {
-    var vkOptions = {
-      {% if site.comments.vk.width %}width: {{ site.comments.vk.width }},{% endif %}
-      {% if site.comments.vk.height %}height: {{ site.comments.vk.height }},{% endif %}
-      {% if site.comments.vk.limit %}limit: {{ site.comments.vk.limit }},{% endif %}
-      {% if site.comments.vk.attach %}attach: "{{ site.comments.vk.attach }}",{% endif %}
-      {% if site.comments.vk.auto_publish %}autoPublish: {{ site.comments.vk.auto_publish }},{% endif %}
-      {% if site.comments.vk.norealtime %}norealtime: {{ site.comments.vk.norealtime }},{% endif %}
-      {% if site.comments.vk.page_url %}pageUrl: "{{ site.comments.vk.page_url }}",{% else %}pageUrl: "{{ site.url }}{{ page.url }}",{% endif %}
-    };
-
-    VK.Widgets.Comments('vk_comments', vkOptions);
-  }
+  VK.Widgets.Comments('vk_comments');
 </script>
 
 <style>
