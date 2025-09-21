@@ -1,0 +1,76 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* Импорт Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..400;1,14..32,100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Переопределение шрифтов */
+:root {
+  --font-family-base: "Inter", sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: "Source Sans 3", sans-serif;
+  --font-family-monospace: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+/* Применение шрифтов */
+body {
+  font-family: var(--font-family-base) !important;
+}
+
+header .post-desc, #toc-bar .label, #search-results a, h1, h2, h3, h4, h5 {
+  font-family: var(--font-family-heading) !important;
+}
+
+code, pre, .highlight {
+  font-family: var(--font-family-monospace) !important;
+}
+
+
+/* Настройка размеров аватара */
+#sidebar #avatar {
+  width: 10.5rem;
+  height: 8.5rem;
+  overflow: unset;
+}
+
+// VK-Comments
+
+/* Дополнительные стили для VK виджета */
+.vk-comments-wrapper {
+  /* Плавная интеграция с дизайном Chirpy */
+  .vk_comments {
+    border-radius: inherit;
+    overflow: hidden;
+  }
+  
+  /* Адаптация под светлую тему */
+  [data-mode="light"] & {
+    background-color: #ffffff;
+    border-color: #e9ecef;
+  }
+  
+  /* Адаптация под темную тему */
+  [data-mode="dark"] & {
+    background-color: #1e1e1e;
+    border-color: #343a40;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .vk-comments-wrapper {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+    border-radius: 0;
+  }
+}
+
+
