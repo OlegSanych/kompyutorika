@@ -126,13 +126,4 @@
   {% endif %}
 
   {% include metadata-hook.html %}
-
-  {% comment %}SEO Protection для staging{% endcomment %}
-  {% assign site_domain = site.url | remove: 'https://' | remove: 'http://' %}
-  {% unless site_domain == 'kompyutorika.ru' %}
-  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
-  <meta name="googlebot" content="noindex, nofollow">
-  <meta name="bingbot" content="noindex, nofollow">
-  {% endunless %}
-
 </head>
