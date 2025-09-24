@@ -8,29 +8,7 @@ Pages.dev домены автоматически считаются staging.
 {% endcomment %}
 {% assign is_production = site.url contains 'kompyutorika.ru' %}
 {% if is_production %}
-User-agent: *---
-layout: null
-permalink: /robots.txt
----
-{% comment %}
-Простая логика: kompyutorika.ru = production, все остальное = блокировать
-{% endcomment %}
-{% assign is_production = site.url contains 'kompyutorika.ru' %}
-
-{% if is_production %}
 User-agent: *
-Allow: /
-
-Disallow: /admin/
-Disallow: /temp/
-Disallow: /drafts/
-
-Sitemap: {{ site.url }}/sitemap.xml
-{% else %}
-User-agent: *
-Disallow: /
-{% endif %}
-
 Allow: /
 
 Disallow: /admin/
