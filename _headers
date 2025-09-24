@@ -1,0 +1,7 @@
+# Блокировка для preview URLs
+https://*.olegsanych-github-io.pages.dev/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+
+# Production - разрешить
+https://kompyutorika.ru/*
+  X-Robots-Tag: index, follow
