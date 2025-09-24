@@ -43,34 +43,66 @@ code, pre, .highlight {
 
 // VK-Comments
 
-/* Дополнительные стили для VK виджета */
-.vk-comments-wrapper {
-  /* Плавная интеграция с дизайном Chirpy */
-  .vk_comments {
-    border-radius: inherit;
-    overflow: hidden;
+/* Фиксы для правильного размещения комментариев */
+.post-comments {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 2rem;
+  padding: 0;
+  box-sizing: border-box;
+  
+  /* VK Comments фиксы */
+  .vk_comments,
+  #vk_comments {
+    width: 100% !important;
+    max-width: 100% !important;
+    
+    iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+}
+
+/* Grid system фиксы для post layout */
+.row {
+  margin: 0;
+  
+  .col-xl-9 {
+    padding-right: 1rem;
+    
+    @media (max-width: 1199px) {
+      padding-right: 15px;
+    }
   }
   
-  /* Адаптация под светлую тему */
-  [data-mode="light"] & {
-    background-color: #ffffff;
-    border-color: #e9ecef;
+  .toc-wrapper {
+    padding-left: 1rem;
+    
+    @media (max-width: 1199px) {
+      display: none !important;
+    }
   }
-  
-  /* Адаптация под темную тему */
-  [data-mode="dark"] & {
-    background-color: #1e1e1e;
-    border-color: #343a40;
-  }
+}
+
+/* Убеждаемся что комментарии не выходят за границы */
+.content,
+.post-tail-wrapper {
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 /* Responsive adjustments */
-@media (max-width: 576px) {
-  .vk-comments-wrapper {
-    margin-left: -0.75rem;
-    margin-right: -0.75rem;
-    border-radius: 0;
+@media (max-width: 767px) {
+  .post-comments {
+    margin: 1rem -15px 0 -15px;
+    padding: 0 15px;
   }
 }
 
-
+@media (min-width: 768px) and (max-width: 1199px) {
+  .post-comments {
+    margin-top: 2rem;
+    padding: 0;
+  }
+}
