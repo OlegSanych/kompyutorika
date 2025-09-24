@@ -100,9 +100,7 @@
   <!-- Scripts -->
 
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
-  {% if site.comments.provider == 'vk' and site.comments.vk.api_id %}
   <script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
-  {% endif %}
 
   {% include js-selector.html lang=lang %}
 

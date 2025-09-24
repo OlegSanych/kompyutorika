@@ -17,14 +17,12 @@ layout: compress
   {% include head.html %}
 
   <body>
-    {% if site.comments.provider == 'vk' and site.comments.vk.api_id %}
     <script type="text/javascript">
       VK.init({
         apiId: {{ site.comments.vk.api_id }},
         onlyWidgets: true
       });
     </script>
-    {% endif %}
     {% include sidebar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
