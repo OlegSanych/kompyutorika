@@ -1,0 +1,11 @@
+# Блокировка индексации для всех .pages.dev доменов
+https://*.olegsanych-github-io.pages.dev/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+  
+# Блокировка индексации для всех staging доменов  
+https://staging.*/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet, noimageindex
+
+# Production домен - разрешить индексацию
+https://kompyutorika.ru/*
+  X-Robots-Tag: index, follow

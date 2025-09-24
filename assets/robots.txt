@@ -2,28 +2,27 @@
 layout: null
 permalink: /robots.txt
 ---
-{% comment %}
-Используем URL сайта для определения среды.
-Pages.dev домены автоматически считаются staging.
-{% endcomment %}
-{% assign is_production = site.url contains 'kompyutorika.ru' %}
-{% if is_production %}
+{% assign site_domain = site.url | remove: 'https://' | remove: 'http://' %}
+
+{% if site_domain == 'kompyutorika.ru' %}
+# PRODUCTION - kompyutorika.ru
 User-agent: *
 Allow: /
 
 Disallow: /admin/
-Disallow: /temp/  
+Disallow: /temp/
 Disallow: /drafts/
 
-Sitemap: {{ site.url }}/sitemap.xml
+Sitemap: https://kompyutorika.ru/sitemap.xml
 {% else %}
+# STAGING/DEVELOPMENT - Block all indexing
 User-agent: *
 Disallow: /
 
 User-agent: Googlebot
 Disallow: /
 
-User-agent: Bingbot  
+User-agent: Bingbot
 Disallow: /
 
 User-agent: Yandex
