@@ -41,22 +41,14 @@ code, pre, .highlight {
   overflow: unset;
 }
 
-// VK-Comments - улучшенная responsive версия
+// VK-Comments
 
-/* Основной контейнер для VK комментариев */
+/* Дополнительные стили для VK виджета */
 .vk-comments-wrapper {
-  width: 100%;
-  max-width: 100%;
-  margin: 2rem 0;
-  padding: 0;
-  box-sizing: border-box;
-  
   /* Плавная интеграция с дизайном Chirpy */
   .vk_comments {
     border-radius: inherit;
     overflow: hidden;
-    width: 100% !important;
-    max-width: 100% !important;
   }
   
   /* Адаптация под светлую тему */
@@ -72,91 +64,13 @@ code, pre, .highlight {
   }
 }
 
-/* Responsive adjustments для разных разрешений */
-
-/* Мобильные устройства (до 768px) */
-@media (max-width: 767px) {
+/* Responsive adjustments */
+@media (max-width: 576px) {
   .vk-comments-wrapper {
-    margin: 1rem -0.75rem 2rem -0.75rem;
-    padding: 0 0.75rem;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
     border-radius: 0;
-    
-    .vk_comments {
-      width: 100% !important;
-    }
   }
 }
 
-/* Планшеты (768px - 1199px) */
-@media (min-width: 768px) and (max-width: 1199px) {
-  .vk-comments-wrapper {
-    width: 100%;
-    max-width: calc(100% - 1rem);
-    margin: 2rem auto;
-    
-    .vk_comments {
-      width: 100% !important;
-    }
-  }
-}
 
-/* Desktop с TOC (1200px и выше) */
-@media (min-width: 1200px) {
-  .post-tail {
-    /* Освобождаем место для TOC сайдбара */
-    padding-right: 280px;
-  }
-  
-  .vk-comments-wrapper {
-    width: 100%;
-    max-width: calc(100% - 280px);
-    margin: 2rem 0;
-    
-    .vk_comments {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-  }
-}
-
-/* Очень большие экраны (1400px и выше) */
-@media (min-width: 1400px) {
-  .post-tail {
-    padding-right: 300px;
-  }
-  
-  .vk-comments-wrapper {
-    max-width: calc(100% - 300px);
-    
-    .vk_comments {
-      width: 100% !important;
-    }
-  }
-}
-
-/* Фиксы для iframe VK виджета */
-.vk_comments iframe {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
-}
-
-/* Дополнительные фиксы для post-tail контейнера */
-.post-tail-bottom {
-  width: 100%;
-  overflow-x: hidden;
-  
-  @media (min-width: 1200px) {
-    margin-right: 0;
-    padding-right: 0; /* TOC отступ уже задан для .post-tail */
-  }
-}
-
-/* Общие фиксы для предотвращения overflow */
-.post-content {
-  overflow-x: hidden;
-  
-  @media (min-width: 1200px) {
-    margin-right: 0; /* Убираем конфликтующие отступы */
-  }
-}
