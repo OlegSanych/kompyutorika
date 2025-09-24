@@ -2,6 +2,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", "~> 4.4"
+gem "logger", "~> 1.6"
 gem "jekyll-theme-chirpy", "~> 7.3"
 
 group :jekyll_plugins do
