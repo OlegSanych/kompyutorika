@@ -1,0 +1,34 @@
+---
+layout: null
+permalink: /robots.txt
+---
+{%- comment -%} CF_PAGES_URL автоматически устанавливается Cloudflare Pages {%- endcomment -%}
+{%- assign current_url = site.env.CF_PAGES_URL | default: site.url -%}
+{%- assign is_production = current_url contains 'kompyutorika.ru' -%}
+
+{%- if is_production and jekyll.environment == 'production' -%}
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /drafts/
+
+Sitemap: {{ current_url }}/sitemap.xml
+{%- else -%}
+# STAGING/DEVELOPMENT ENVIRONMENT - NO INDEXING
+User-agent: *
+Disallow: /
+
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Yandex
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+{%- endif -%}

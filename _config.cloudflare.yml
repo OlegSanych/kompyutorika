@@ -1,0 +1,10 @@
+# _config.cloudflare.yml - дополнительная конфигурация для Cloudflare
+url: "" # Будет задано через переменную окружения CF_PAGES_URL
+
+# Настройка baseurl в зависимости от среды
+{% assign cf_pages_url = site.env.CF_PAGES_URL %}
+{% if cf_pages_url contains '.pages.dev' %}
+baseurl: ""
+{% else %}
+baseurl: ""
+{% endif %}
